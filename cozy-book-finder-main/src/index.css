@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cozy Library Color Palette */
+    --background: 45 15% 97%;
+    --foreground: 25 25% 15%;
+
+    --card: 42 20% 96%;
+    --card-foreground: 25 25% 15%;
+
+    --popover: 42 20% 96%;
+    --popover-foreground: 25 25% 15%;
+
+    /* Rich leather brown primary */
+    --primary: 25 35% 25%;
+    --primary-foreground: 45 25% 95%;
+
+    /* Warm cream secondary */
+    --secondary: 45 25% 90%;
+    --secondary-foreground: 25 35% 25%;
+
+    /* Soft parchment muted */
+    --muted: 45 20% 92%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Golden accent */
+    --accent: 40 45% 75%;
+    --accent-foreground: 25 35% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 25% 95%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 88%;
+    --ring: 40 45% 65%;
+
+    /* Custom Library Tokens */
+    --library-brown: 25 35% 25%;
+    --library-cream: 45 25% 95%;
+    --library-parchment: 45 20% 92%;
+    --library-gold: 40 45% 65%;
+    --library-warm: 35 25% 35%;
+
+    /* Beautiful Gradients */
+    --gradient-library: linear-gradient(135deg, hsl(var(--library-cream)), hsl(var(--library-parchment)));
+    --gradient-book: linear-gradient(145deg, hsl(var(--card)), hsl(var(--library-cream)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--library-brown)) 0%, hsl(var(--library-warm)) 100%);
+
+    /* Elegant Shadows */
+    --shadow-book: 0 4px 20px -2px hsl(var(--library-brown) / 0.1);
+    --shadow-elevated: 0 8px 30px -4px hsl(var(--library-brown) / 0.15);
+    --shadow-glow: 0 0 30px hsl(var(--library-gold) / 0.2);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Cozy Library Theme */
+    --background: 25 20% 8%;
+    --foreground: 45 15% 90%;
+
+    --card: 25 25% 12%;
+    --card-foreground: 45 15% 90%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 45 15% 90%;
+
+    --primary: 40 45% 65%;
+    --primary-foreground: 25 20% 8%;
+
+    --secondary: 25 15% 18%;
+    --secondary-foreground: 45 15% 90%;
+
+    --muted: 25 15% 15%;
+    --muted-foreground: 45 10% 65%;
+
+    --accent: 40 45% 55%;
+    --accent-foreground: 25 20% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 45 15% 90%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 18%;
+    --ring: 40 45% 55%;
+
+    /* Dark Library Tokens */
+    --library-brown: 25 25% 12%;
+    --library-cream: 45 15% 90%;
+    --library-parchment: 25 15% 15%;
+    --library-gold: 40 45% 55%;
+    --library-warm: 25 20% 20%;
+
+    --gradient-library: linear-gradient(135deg, hsl(var(--library-brown)), hsl(var(--library-warm)));
+    --gradient-book: linear-gradient(145deg, hsl(var(--card)), hsl(var(--library-warm)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--library-brown)) 0%, hsl(25 30% 5%) 100%);
+
+    --shadow-book: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 8px 30px -4px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 30px hsl(var(--library-gold) / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  /* Custom Typography */
+  .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+    font-optical-sizing: auto;
+  }
+
+  .font-reading {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: "cv05" 1, "cv08" 1, "cv11" 1;
+  }
+}
+
+@layer components {
+  /* Library-specific component styles */
+  .book-card {
+    background: var(--gradient-book);
+    box-shadow: var(--shadow-book);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .search-glow:focus-within {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+}
